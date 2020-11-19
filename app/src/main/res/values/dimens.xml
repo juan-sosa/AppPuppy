@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="layout_margin_top">20sp</dimen>
+    <dimen name="btn_padding">20sp</dimen>
+    <dimen name="img_layout_height">250dp</dimen>
+    <dimen name="img_layout_width">250dp</dimen>
+    <dimen name="img_padding">10dp</dimen>
+    <dimen name="size_tvNombre">24sp</dimen>
+    <dimen name="size_cantidadLikes">16sp</dimen>
+    <dimen name="layout_margin_left_tvNombre">10sp</dimen>
+    <dimen name="size_iconLike">24sp</dimen>
+    <dimen name="layout_margin_iconLike">5dp</dimen>
+
+</resources>

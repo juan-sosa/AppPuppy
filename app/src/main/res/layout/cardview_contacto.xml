@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cvMascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="5dp"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+     >
+
+        <ImageView
+            android:id="@+id/imgMascota"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/img_layout_height"
+            android:padding="@dimen/img_padding"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/jennyslet"
+        ></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="1dp"
+             >
+                <ImageView
+                    android:id="@+id/imgWhite"
+                    android:layout_width="@dimen/size_iconLike"
+                    android:layout_height="@dimen/size_iconLike"
+                    android:src="@drawable/hueso_icon_white"
+                    android:layout_margin="@dimen/layout_margin_iconLike"
+                    ></ImageView>>
+
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/size_tvNombre"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/layout_margin_left_tvNombre"
+                    android:text="Max"
+
+                    />
+
+                <RelativeLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tvCantidadLikes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="7dp"
+                        android:layout_toLeftOf="@+id/imgLikeYellow"
+                        android:text="5"
+                        android:textSize="@dimen/size_cantidadLikes" />
+
+                    <ImageView
+                        android:id="@+id/imgLikeYellow"
+                        android:layout_width="@dimen/size_iconLike"
+                        android:layout_height="@dimen/size_iconLike"
+                        android:layout_margin="@dimen/layout_margin_iconLike"
+                        android:src="@drawable/hueso_icon_yellow"
+                        android:layout_alignParentRight="true"
+                        ></ImageView>
+
+
+
+
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
+
