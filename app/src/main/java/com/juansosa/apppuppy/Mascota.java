@@ -5,9 +5,20 @@ public class Mascota {
     private String nombre;
     private int foto;
 
-    public Mascota(String nombre, int foto) {
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    private int likes;
+
+    public Mascota(String nombre, int foto, int likes) {
         this.nombre = nombre;
         this.foto = foto;
+        this.likes = likes ;
     }
 
 

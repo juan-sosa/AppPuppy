@@ -2,6 +2,7 @@
 
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvMascota"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,11 +19,12 @@
 
         <ImageView
             android:id="@+id/imgMascota"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/img_layout_width"
             android:layout_height="@dimen/img_layout_height"
-            android:padding="@dimen/img_padding"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/jennyslet"
+            android:src="@drawable/max"
+            android:paddingVertical="35dp"
+
         ></ImageView>
 
             <LinearLayout
@@ -31,14 +33,13 @@
                 android:orientation="horizontal"
                 android:padding="1dp"
              >
-                <ImageView
-                    android:id="@+id/imgWhite"
+
+                <ImageButton
+                    android:id="@+id/btnLike"
                     android:layout_width="@dimen/size_iconLike"
                     android:layout_height="@dimen/size_iconLike"
-                    android:src="@drawable/hueso_icon_white"
-                    android:layout_margin="@dimen/layout_margin_iconLike"
-                    ></ImageView>>
-
+                    android:background="@drawable/hueso_icon_white"
+                    ></ImageButton>
 
                 <TextView
                     android:id="@+id/tvNombre"
@@ -66,23 +67,18 @@
                         android:layout_marginTop="6dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginBottom="7dp"
-                        android:layout_toLeftOf="@+id/imgLikeYellow"
+                        android:layout_toLeftOf="@+id/btnLikeYellow"
                         android:text="5"
                         android:textSize="@dimen/size_cantidadLikes" />
 
-                    <ImageView
-                        android:id="@+id/imgLikeYellow"
+                    <ImageButton
+                        android:id="@+id/btnLikeYellow"
                         android:layout_width="@dimen/size_iconLike"
                         android:layout_height="@dimen/size_iconLike"
                         android:layout_margin="@dimen/layout_margin_iconLike"
-                        android:src="@drawable/hueso_icon_yellow"
+                        android:background="@drawable/hueso_icon_yellow"
                         android:layout_alignParentRight="true"
-                        ></ImageView>
-
-
-
-
-
+                        ></ImageButton>
 
 
                 </RelativeLayout>

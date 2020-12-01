@@ -1,20 +1,39 @@
 package com.juansosa.apppuppy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.ToolbarWidgetWrapper;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
+import com.juansosa.apppuppy.adapter.PageAdapter;
+import com.juansosa.apppuppy.adapter.mascotaAdaptador;
+import com.juansosa.apppuppy.fragment.PerfilFragment;
+import com.juansosa.apppuppy.fragment.RecyclerViewFragment;
 
 import java.util.ArrayList;
 
 public class ListaMascotas extends AppCompatActivity {
 
-    //Lista de perfiles de tipo Mascota
-    ArrayList<Mascota> mascotas;
+    private Toolbar toolbar;
+    private TextView tvToolbar;
 
-    private RecyclerView listaMascotas;
-
+    private TabLayout tablayout;
+    private ViewPager viewPager;
+    private ImageButton btnFavoritos;
 
 
     @Override
@@ -23,42 +42,87 @@ public class ListaMascotas extends AppCompatActivity {
         setContentView(R.layout.activity_lista_mascotas);
 
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        toolbar = (Toolbar) findViewById(R.id.miToolbar);
+        setSupportActionBar(toolbar);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        tvToolbar = (TextView) findViewById(R.id.tvActionBar);
+        tvToolbar.setText( getResources().getString(R.string.app_name).toString() );
 
-        //Asigno el Layout creado al Recycler View
-        listaMascotas.setLayoutManager(llm);
+        tablayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
-        //Inicializo lista de mascotas con los datos
-        inicializarListaMascotas();
-        inicializarAdaptador();
+        setUpViewPager();
+
+        btnFavoritos = (ImageButton) findViewById(R.id.btnFavoritos);
+
+
+        btnFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Toast.makeText(ListaMascotas.this, "Favoritos", Toast.LENGTH_SHORT).show();
+               Intent favoritos = new Intent( ListaMascotas.this, Favoritos.class);
+               startActivity(favoritos);
+            }
+        });
+
+
+    }
+
+    //Menu de Opciones
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()){
+
+            case R.id.mContacto:
+                Toast.makeText(ListaMascotas.this, getResources().getString(R.string.menu_opcion_contacto), Toast.LENGTH_SHORT).show();
+                Intent contacto = new Intent(ListaMascotas.this, ContactoActivity.class);
+                startActivity(contacto);
+                break;
+
+            case R.id.mAcercade:
+                Toast.makeText(ListaMascotas.this, getResources().getString(R.string.menu_opcion_acercade), Toast.LENGTH_SHORT).show();
+                Intent acercade = new Intent(ListaMascotas.this, AcercaDeActivity.class);
+                startActivity(acercade);
+                break;
 
         }
 
-        //Funcion para inicializar lista de mascotas
 
-        public void inicializarListaMascotas(){
-
-            mascotas = new ArrayList<Mascota>();
-
-            mascotas.add(new Mascota("Max", R.drawable.max));
-            mascotas.add(new Mascota("Jenny Slet", R.drawable.jennyslet));
-            mascotas.add(new Mascota("Norman", R.drawable.norman));
-            mascotas.add(new Mascota("Snowball", R.drawable.snowball));
-            mascotas.add(new Mascota("Tiberius", R.drawable.tiberius));
+        return super.onOptionsItemSelected(item);
+    }
 
 
-        }
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+
+        return fragments;
 
 
-        public void inicializarAdaptador(){
-            mascotaAdaptador adaptador = new mascotaAdaptador(mascotas, this);
-            listaMascotas.setAdapter(adaptador);
-        }
+    }
+
+    private void setUpViewPager(){
+
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()) );
+        tablayout.setupWithViewPager(viewPager);
+
+        //Agrego iconos a los layouts
+
+        tablayout.getTabAt(0).setIcon(R.drawable.ic_perfil);
+        tablayout.getTabAt(1).setIcon(R.drawable.ic_recyclerview);
 
 
+    }
 
 
 }

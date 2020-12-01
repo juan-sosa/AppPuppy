@@ -1,6 +1,23 @@
 <resources>
-    <string name="app_name">AppPuppy</string>
+    <string name="app_name">Puppy</string>
     <string name="btn_ingresar">Ingresar</string>
 
+    //Titulos menu
+    <string name="menu_opcion_contacto">Contacto</string>
+    <string name="menu_opcion_acercade">Acerca de</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="contacto_nombre">Nombre</string>
+    <string name="contacto_email">Email</string>
+    <string name="contacto_mensaje">Mensaje</string>
+    <string name="contacto_contraseña">Contraseña</string>
+    <string name="btn_enviarComentario">Enviar comentario</string>
+
+
+    <string name="nombre_desadorrollador">Sosa, Juan</string>
+    <string name="descripcion_desarrollador">Estudiante, nacido en Argentina Bs. As.</string>
+
+    <string name="perfil_nombre_mascota">Max</string>
 
 </resources>
